@@ -13,13 +13,13 @@ class DevelopmentConfig(Config):
     """Development configuration"""
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://postgres:password@localhost:5432/responsive_web_app_dev'
+        'postgresql://localhost:5432/cafe_fausse_dev'
 
 class ProductionConfig(Config):
     """Production configuration"""
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://postgres:password@localhost:5432/responsive_web_app'
+        'postgresql://localhost:5432/cafe_fausse'
 
 class TestingConfig(Config):
     """Testing configuration"""

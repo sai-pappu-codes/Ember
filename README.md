@@ -1,6 +1,6 @@
-# Responsive Web Application
+# Café Fausse - Fine Dining Web Application
 
-A modern, full-stack web application built with React, Flask, and PostgreSQL.
+A sophisticated, full-stack web application for Café Fausse, an elegant fine-dining restaurant. This project features a React frontend with responsive design, Flask REST API backend, and PostgreSQL database for managing reservations and customer data.
 
 ## 🏗️ Architecture
 

@@ -1,9 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
 from dotenv import load_dotenv
+from datetime import datetime, timedelta
+import random
 
 # Load environment variables
 load_dotenv()
@@ -12,17 +14,16 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/responsive_web_app')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/cafe_fausse_dev')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'cafe-fausse-secret-key-change-in-production')
 
 # Initialize extensions
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 CORS(app)
 
-# Import models (to be created)
-# from models import *
+# Import models after db initialization to avoid circular imports
 
 # Routes
 @app.route('/api/health')

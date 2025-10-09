@@ -1,0 +1,72 @@
+/* About Us Page Styles */
+.about-story {
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.founder-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.founder-title {
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.philosophy-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.philosophy-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.awards-list {
+  max-width: 600px;
+  margin: 3rem auto;
+}
+
+.award-item {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.award-year {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
