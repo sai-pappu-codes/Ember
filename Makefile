@@ -17,20 +17,19 @@ setup-frontend: ## Set up React frontend
 	cd frontend && npm install
 	@echo "Frontend setup complete"
 
-db-start: ## Start PostgreSQL database
-	docker-compose up -d postgres
-	@echo "Database started on port 5432"
+db-start: ## Ensure local PostgreSQL database exists
+	@createdb cafe_fausse_dev 2>/dev/null || echo "Database cafe_fausse_dev already exists"
+	@echo "Ensure your local PostgreSQL service is running (e.g., brew services start postgresql@16 or use Postgres.app)"
 
-db-stop: ## Stop PostgreSQL database
-	docker-compose down
-	@echo "Database stopped"
+db-stop: ## Stop PostgreSQL database (local install)
+	@echo "Stop your local PostgreSQL service via your OS tooling (e.g., brew services stop postgresql@16)"
 
 db-migrate: ## Run database migrations
 	cd backend && . venv/bin/activate && flask db upgrade
 	@echo "Database migrations complete"
 
 backend: ## Run Flask backend
-	cd backend && . venv/bin/activate && python app.py
+	cd backend && . venv/bin/activate && python app_cafe.py
 
 frontend: ## Run React frontend
 	cd frontend && npm run dev

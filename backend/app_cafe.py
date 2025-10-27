@@ -302,11 +302,11 @@ def create_reservation():
             db.session.add(customer)
             db.session.flush()
         
-        # Create reservation (assign first available table)
+        # Create reservation (assign a random available table)
         reservation = Reservation(
             customer_id=customer.customer_id,
             time_slot=time_slot,
-            table_number=available_tables[0],
+            table_number=random.choice(available_tables),
             number_of_guests=data['number_of_guests'],
             special_requests=data.get('special_requests')
         )
@@ -454,4 +454,4 @@ with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='127.0.0.1', port=5000)

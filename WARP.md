@@ -13,7 +13,7 @@ This is a full-stack web application with a React frontend, Flask backend, and P
 # First-time setup
 make install        # Install all dependencies
 cp .env.example .env  # Configure environment variables
-make db-start       # Start PostgreSQL container
+make db-start       # Ensure local PostgreSQL database exists
 make db-migrate     # Run database migrations
 
 # Development workflow
@@ -24,12 +24,12 @@ make frontend       # Start React dev server on port 5173
 ### Database Management
 ```bash
 # PostgreSQL operations
-docker-compose up -d postgres    # Start database
-docker-compose down              # Stop database
-docker-compose logs postgres     # View database logs
+brew services start postgresql@16  # or launch Postgres.app
+# Stop via OS tooling, e.g., brew services stop postgresql@16
+# View logs via your OS service manager or Postgres.app
 
 # Access PostgreSQL CLI
-docker-compose exec postgres psql -U postgres -d responsive_web_app_dev
+psql -d cafe_fausse_dev
 
 # Database migrations
 cd backend && flask db migrate -m "Description"  # Create new migration
@@ -54,7 +54,7 @@ cd frontend && npm test -- --watch  # Watch mode
 cd frontend && npm run build  # Creates dist/ directory
 
 # Backend production server
-cd backend && gunicorn -w 4 -b 0.0.0.0:5000 app:app
+cd backend && gunicorn -w 4 -b 127.0.0.1:5000 app_cafe:app
 ```
 
 ### Code Quality
@@ -90,9 +90,8 @@ The Flask backend serves as a REST API with the following structure:
 
 ### Database Architecture
 
-PostgreSQL running in Docker container with:
-- Database migrations tracked in `backend/migrations/` (created after first migration)
-- Initial setup script in `database/init.sql` (if provided)
+PostgreSQL running locally with:
+- Database migrations tracked in `backend/migrations/` (optional; `db.create_all` also supported)
 - Connection managed through SQLAlchemy ORM
 
 ### Cross-Component Communication Flow
@@ -130,11 +129,11 @@ Key environment variables (defined in `.env`):
 - `FLASK_ENV`: Set to 'development' for debug mode
 - `VITE_API_URL`: Frontend API base URL (optional, defaults to proxy)
 
-## Docker Services
+## Database
 
-The application uses Docker Compose for database services:
-- **postgres**: Main PostgreSQL database on port 5432
-- **pgadmin**: Optional database GUI on port 5050 (use `--profile tools` to enable)
+This project uses your local PostgreSQL installation (no Docker required):
+- Database name: `cafe_fausse_dev`
+- Optional GUI: pgAdmin 4 desktop app (install via Homebrew Cask or Postgres.app)
 
 ## Common Development Tasks
 
@@ -152,7 +151,7 @@ The application uses Docker Compose for database services:
 4. Apply migration: `flask db upgrade`
 
 ### Debugging Database Issues
-1. Check container status: `docker-compose ps`
-2. View logs: `docker-compose logs postgres`
-3. Access database directly: `docker-compose exec postgres psql -U postgres -d responsive_web_app_dev`
-4. Check migration status: `flask db current`
+1. Check service status (macOS): `brew services list | grep postgres` or open Postgres.app
+2. View tables/rows: `psql -d cafe_fausse_dev -c "\\dt"`
+3. Access database directly: `psql -d cafe_fausse_dev`
+4. Check migration status: `cd backend && flask db current`

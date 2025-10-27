@@ -6,14 +6,15 @@ A sophisticated, full-stack web application for Café Fausse, an elegant fine-di
 
 - **Frontend**: React with Vite for fast development and optimal production builds
 - **Backend**: Flask REST API with SQLAlchemy ORM
-- **Database**: PostgreSQL with Docker containerization
+- **Database**: PostgreSQL (local install)
 - **Development**: Hot module replacement, CORS enabled, and database migrations
 
 ## 📋 Prerequisites
 
 - Node.js (v16 or higher)
 - Python 3.8+
-- Docker and Docker Compose
+- PostgreSQL (local install)
+- pgAdmin 4 (optional)
 - Git
 
 ## 🚀 Quick Start
@@ -30,9 +31,11 @@ cp .env.example .env
 # Edit .env with your configuration
 ```
 
-### 3. Start the database
+### 3. Prepare the database
 ```bash
-docker-compose up -d postgres
+# Ensure PostgreSQL is running (e.g., Homebrew: brew services start postgresql@16 or use Postgres.app)
+createdb cafe_fausse_dev || true
+psql -d cafe_fausse_dev -c "\\dt"
 ```
 
 ### 4. Set up the backend
@@ -48,7 +51,7 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 
 # Run the Flask server
-python app.py
+python app_cafe.py
 ```
 
 ### 5. Set up the frontend
@@ -62,7 +65,7 @@ npm run dev
 The application will be available at:
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:5000
-- pgAdmin (optional): http://localhost:5050
+- pgAdmin (optional): use the desktop app (Applications → pgAdmin 4) or `brew install --cask pgadmin4`
 
 ## 📁 Project Structure
 
@@ -85,8 +88,9 @@ responsive-web-app/
 ├── database/            # Database related files
 │   ├── migrations/      # Database migrations
 │   ├── seeds/          # Seed data
-│   └── init.sql        # Initial database setup
-├── docker-compose.yml   # Docker services configuration
+│   ├── schema.sql      # Application schema (customers, reservations)
+│   ├── seed.sql        # Sample data
+│   └── queries.sql     # Handy demo/debug queries
 ├── .env.example        # Environment variables template
 └── README.md           # This file
 ```
@@ -98,7 +102,7 @@ responsive-web-app/
 ```bash
 cd backend
 source venv/bin/activate
-python app.py
+python app_cafe.py
 ```
 
 The Flask API will run on `http://localhost:5000` with hot-reloading enabled.
@@ -115,20 +119,16 @@ The React app will run on `http://localhost:5173` with hot module replacement.
 ### Database Management
 
 ```bash
-# Start PostgreSQL
-docker-compose up -d postgres
+# Ensure PostgreSQL is running (macOS examples)
+brew services start postgresql@16  # or launch Postgres.app
 
-# Stop PostgreSQL
-docker-compose down
+# Create the dev database (idempotent)
+createdb cafe_fausse_dev || true
 
-# View logs
-docker-compose logs postgres
-
-# Access PostgreSQL CLI
-docker-compose exec postgres psql -U postgres -d responsive_web_app_dev
-
-# Start pgAdmin (optional)
-docker-compose --profile tools up -d pgadmin
+# Access PostgreSQL CLI and run quick checks
+psql -d cafe_fausse_dev -c "\\dt"
+psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM customers;" || true
+psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM reservations;" || true
 ```
 
 ### Database Migrations
@@ -164,7 +164,7 @@ npm run build
 ### Backend Deployment
 ```bash
 cd backend
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
+gunicorn -w 4 -b 127.0.0.1:5000 app_cafe:app
 ```
 
 ## 🔧 Configuration
