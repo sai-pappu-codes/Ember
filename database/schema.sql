@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS public.reservations (
 -- Useful indexes
 CREATE INDEX IF NOT EXISTS idx_reservations_time_slot ON public.reservations(time_slot);
 CREATE INDEX IF NOT EXISTS idx_reservations_table_time ON public.reservations(table_number, time_slot);
+-- Prevent exact duplicate bookings for the same table at the same timestamp
+CREATE UNIQUE INDEX IF NOT EXISTS ux_reservations_table_time ON public.reservations(table_number, time_slot);
 
 -- Trigger to auto-update updated_at
 CREATE OR REPLACE FUNCTION set_updated_at()

@@ -37,16 +37,6 @@ cd backend && flask db upgrade                   # Apply migrations
 cd backend && flask db downgrade                 # Rollback migration
 ```
 
-### Testing
-```bash
-# Run backend tests (when implemented)
-cd backend && pytest
-cd backend && pytest tests/test_specific.py::TestCase::test_method  # Run single test
-
-# Run frontend tests (when implemented)  
-cd frontend && npm test
-cd frontend && npm test -- --watch  # Watch mode
-```
 
 ### Building & Deployment
 ```bash

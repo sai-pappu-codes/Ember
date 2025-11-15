@@ -139,19 +139,6 @@ flask db migrate -m "Description of changes"
 flask db upgrade
 ```
 
-## 🧪 Testing
-
-### Backend Tests
-```bash
-cd backend
-pytest
-```
-
-### Frontend Tests
-```bash
-cd frontend
-npm test
-```
 
 ## 📦 Production Build
 

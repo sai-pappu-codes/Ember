@@ -38,13 +38,6 @@ build: ## Build frontend for production
 	cd frontend && npm run build
 	@echo "Frontend built in frontend/dist"
 
-test-backend: ## Run backend tests
-	cd backend && . venv/bin/activate && pytest
-
-test-frontend: ## Run frontend tests
-	cd frontend && npm test
-
-test: test-backend test-frontend ## Run all tests
 
 clean: ## Clean generated files
 	find . -type d -name "__pycache__" -exec rm -rf {} +

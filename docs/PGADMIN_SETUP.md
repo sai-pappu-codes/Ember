@@ -37,7 +37,12 @@ Press Save.
   - `database/seed.sql` (adds a sample customer & reservation)
   - `database/queries.sql` (handy demo/debug queries)
 
-## 6) Verifying via Terminal (alternative to pgAdmin)
+## 6) Import a pre-configured server definition (optional)
+- In pgAdmin: File → Import/Export Servers… → Import
+- Choose `docs/pgadmin_servers.json`
+- Click OK. You should see a server named “Cafe Fausse Local” under “Servers”.
+
+## 7) Verifying via Terminal (alternative to pgAdmin)
 ```bash
 psql -d cafe_fausse_dev -c "\\dt"
 psql -d cafe_fausse_dev -c "SELECT * FROM customers;"

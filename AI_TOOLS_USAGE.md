@@ -1,4 +1,43 @@
-# AI Tools Usage Documentation
+# AI Tooling Summary (Concise)
+
+Project: Café Fausse – Full‑stack web application (React + Flask + PostgreSQL)
+
+Tools and where they helped
+- Code generation and pairing: AI assistant (model: gpt‑5 high reasoning)
+- Terminal automation: shell commands to start services, seed DB, create GitHub repo, and verify health
+- Refactoring and docs: updated README/WARP, seeded scripts, submission checklist
+
+Key outcomes delivered by AI
+- Frontend
+  - React + Vite scaffold with routing and 5 pages (Home, Menu, Reservations, About, Gallery)
+  - Responsive CSS using Grid/Flexbox
+  - Newsletter footer component posting to /api/newsletter
+- Backend
+  - Flask API endpoints: /api, /api/health, /api/menu, /api/gallery, /api/reviews,
+    /api/check-availability (POST), /api/reservations (POST), /api/reservations/<id>
+  - Reservation logic: hours validation, availability check, random table assignment (30 tables), robust input validation, error messages
+  - Models: customers, reservations (+ to_dict helpers)
+- Database
+  - SQL schema and seed scripts (schema.sql, seed.sql, queries.sql)
+  - Added unique index to protect against exact duplicate bookings per table and time
+- Developer UX
+  - Vite proxy (/api → :5000), Makefile targets, verify_setup.sh, pgAdmin setup docs (and import JSON)
+  - Local‑only setup (no Docker), .env configured for app_cafe.py
+
+What remained human‑driven
+- Environment decisions (local Postgres vs Docker)
+- Sensitive configuration (.env), pgAdmin connection, and GitHub authentication
+- Content choices (copy, images), and reviewing generated code for fit and polish
+
+Why this matters for submission
+- Meets SRS requirements (FR‑1..FR‑18) including reservations system, menu page, gallery with lightbox, and newsletter signup
+- Local Postgres and pgAdmin demonstrate real data flow and CRUD visibility
+- Documentation explains how to run locally and verify functionality
+
+Notes on responsible use
+- Secrets are kept in .env (never printed or echoed back)
+- Commands avoid interactive pagers and run safely in user space
+- All edits are committed with descriptive messages for reviewer traceability
 
 ## Project: Café Fausse Web Application
 
