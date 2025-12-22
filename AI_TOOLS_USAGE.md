@@ -4,7 +4,7 @@ Project: Café Fausse – Full‑stack web application (React + Flask + PostgreS
 
 Tools and where they helped
 - Code generation and pairing: AI assistant (model: gpt‑5 high reasoning)
-- Terminal automation: shell commands to start services, seed DB, create GitHub repo, and verify health
+- Terminal automation (Warp): used the Warp terminal to run shell commands to start services, seed DB, create the GitHub repo, and verify health
 - Refactoring and docs: updated README/WARP, seeded scripts, submission checklist
 
 Key outcomes delivered by AI
