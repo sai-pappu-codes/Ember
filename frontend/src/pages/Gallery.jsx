@@ -38,8 +38,13 @@ function Gallery() {
   const localImages = [
     { id: 1, url: '/images/gallery-cafe-interior.webp', caption: 'Elegant Dining Room' },
     { id: 2, url: '/images/gallery-ribeye-steak.webp', caption: 'Signature Ribeye Steak' },
-    { id: 3, url: '/images/gallery-special-event.webp', caption: 'Private Events' },
-    { id: 4, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' }
+    { id: 3, url: '/images/tiramisu.jpg', caption: 'Classic Tiramisu' },
+    { id: 4, url: '/images/cocktail-bar.jpg', caption: 'Signature Cocktails' },
+    { id: 5, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
+    { id: 6, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
+    { id: 7, url: '/images/dessert-closeup.jpg', caption: 'Exquisite Desserts' },
+    { id: 8, url: '/images/gallery-special-event.webp', caption: 'Private Events' },
+    { id: 9, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' }
   ];
 
   return (
