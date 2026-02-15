@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Newsletter from '../components/Newsletter';
 import './Home.css';
 
 function Home() {
@@ -47,22 +48,22 @@ function Home() {
         <div className="container">
           <h2 className="section-title">Why Choose Café Fausse</h2>
           <div className="features-grid">
-            <div className="feature-card">
+            <div className="feature-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/dessert-closeup.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white'}}>
               <div className="feature-icon">🍽️</div>
               <h3>Exquisite Cuisine</h3>
               <p>Masterfully crafted dishes using the finest locally sourced ingredients</p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/cocktail-bar.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white'}}>
               <div className="feature-icon">🍷</div>
               <h3>Curated Wine Selection</h3>
               <p>An extensive collection of fine wines from around the world</p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/chef-hands.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white'}}>
               <div className="feature-icon">👨‍🍳</div>
               <h3>Award-Winning Chef</h3>
               <p>Led by Chef Antonio Rossi, recipient of multiple culinary awards</p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/bar-interior.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white'}}>
               <div className="feature-icon">🌟</div>
               <h3>Elegant Ambiance</h3>
               <p>Sophisticated atmosphere perfect for special occasions</p>
@@ -104,6 +105,9 @@ function Home() {
           <Link to="/reservations" className="btn btn-large">Reserve Your Table</Link>
         </div>
       </section>
+
+      {/* Newsletter Signup */}
+      <Newsletter />
 
       {/* Contact Info */}
       <section className="section contact-info">

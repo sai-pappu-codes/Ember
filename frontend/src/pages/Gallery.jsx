@@ -69,21 +69,27 @@ function Gallery() {
           </div>
         </section>
 
-        {galleryData && galleryData.awards && (
-          <section className="awards-section">
-            <h2>Awards & Recognition</h2>
-            <div className="awards-grid">
-              {galleryData.awards.map((award, index) => (
-                <div key={index} className="award-card">
-                  <div className="award-icon">🏆</div>
-                  <h3>{award.title}</h3>
-                  <p className="award-year">{award.year}</p>
-                  <p className="award-org">{award.organization}</p>
-                </div>
-              ))}
+        <section className="awards-section">
+          <h2>Awards & Recognition</h2>
+          <div className="awards-grid">
+            <div className="award-card">
+              <div className="award-icon">🏆</div>
+              <h3>Culinary Excellence Award</h3>
+              <p className="award-year">2022</p>
             </div>
-          </section>
-        )}
+            <div className="award-card">
+              <div className="award-icon">🏆</div>
+              <h3>Restaurant of the Year</h3>
+              <p className="award-year">2023</p>
+            </div>
+            <div className="award-card">
+              <div className="award-icon">🏆</div>
+              <h3>Best Fine Dining Experience</h3>
+              <p className="award-year">2023</p>
+              <p className="award-org">Foodie Magazine</p>
+            </div>
+          </div>
+        </section>
 
         <section className="reviews-section">
           <h2>Guest Reviews</h2>
