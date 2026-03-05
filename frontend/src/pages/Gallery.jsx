@@ -34,17 +34,22 @@ function Gallery() {
     return <div className="spinner"></div>;
   }
 
-  // Local images for gallery
+  // Local images for gallery - all 14 images
   const localImages = [
     { id: 1, url: '/images/gallery-cafe-interior.webp', caption: 'Elegant Dining Room' },
-    { id: 2, url: '/images/gallery-ribeye-steak.webp', caption: 'Signature Ribeye Steak' },
-    { id: 3, url: '/images/tiramisu.jpg', caption: 'Classic Tiramisu' },
-    { id: 4, url: '/images/cocktail-bar.jpg', caption: 'Signature Cocktails' },
-    { id: 5, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
-    { id: 6, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
+    { id: 2, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' },
+    { id: 3, url: '/images/gallery-ribeye-steak.webp', caption: 'Signature Ribeye Steak' },
+    { id: 4, url: '/images/salmon-dish.jpg', caption: 'Grilled Salmon' },
+    { id: 5, url: '/images/caprese-salad.jpg', caption: 'Fresh Caprese Salad' },
+    { id: 6, url: '/images/tiramisu.jpg', caption: 'Classic Tiramisu' },
     { id: 7, url: '/images/dessert-closeup.jpg', caption: 'Exquisite Desserts' },
-    { id: 8, url: '/images/gallery-special-event.webp', caption: 'Private Events' },
-    { id: 9, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' }
+    { id: 8, url: '/images/cocktail-bar.jpg', caption: 'Signature Cocktails' },
+    { id: 9, url: '/images/espresso-coffee.jpg', caption: 'Premium Espresso' },
+    { id: 10, url: '/images/wine-cellar.jpg', caption: 'Wine Collection' },
+    { id: 11, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
+    { id: 12, url: '/images/elegant-table.jpg', caption: 'Fine Dining Setup' },
+    { id: 13, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
+    { id: 14, url: '/images/gallery-special-event.webp', caption: 'Private Events' }
   ];
 
   return (

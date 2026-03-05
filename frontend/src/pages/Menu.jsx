@@ -60,16 +60,36 @@ function Menu() {
                   {category.replace('_', ' ').charAt(0).toUpperCase() + category.replace('_', ' ').slice(1)}
                 </h2>
                 <div className="menu-items">
-                  {items.map(item => (
-                    <div key={item.id} className="menu-item">
-                      <div className="menu-item-header">
-                        <h3 className="menu-item-name">{item.name}</h3>
-                        <span className="menu-item-price">${item.price.toFixed(2)}</span>
+                  {items.map(item => {
+                    // Map specific dishes to their images
+                    const dishImages = {
+                      'Grilled Salmon': '/images/salmon-dish.jpg',
+                      'Ribeye Steak': '/images/gallery-ribeye-steak.webp',
+                      'Tiramisu': '/images/tiramisu.jpg',
+                      'Bruschetta': '/images/caprese-salad.jpg',
+                      'Espresso': '/images/espresso-coffee.jpg'
+                    };
+                    
+                    return (
+                      <div key={item.id} className="menu-item">
+                        {dishImages[item.name] && (
+                          <img 
+                            src={dishImages[item.name]} 
+                            alt={item.name} 
+                            className="menu-item-image"
+                          />
+                        )}
+                        <div className="menu-item-content">
+                          <div className="menu-item-header">
+                            <h3 className="menu-item-name">{item.name}</h3>
+                            <span className="menu-item-price">${item.price.toFixed(2)}</span>
+                          </div>
+                          <p className="menu-item-description">{item.description}</p>
+                          {item.vegetarian && <span className="vegetarian-badge">🌱 Vegetarian</span>}
+                        </div>
                       </div>
-                      <p className="menu-item-description">{item.description}</p>
-                      {item.vegetarian && <span className="vegetarian-badge">🌱 Vegetarian</span>}
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
