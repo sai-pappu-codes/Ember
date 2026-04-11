@@ -47,7 +47,7 @@
   - ✅ Address: 1234 Culinary Ave, Suite 100, Washington, DC 20002
   - ✅ Phone: (202) 555-4567
   - ✅ Hours: Mon-Sat 5:00PM-11:00PM, Sun 5:00PM-9:00PM
-✅ **FR-3**: High-quality images (14 total)
+✅ **FR-3**: High-quality images (15 total)
 ✅ **FR-4**: Navigation to all pages
 
 #### 3.1.2 Menu Page (FR-5)

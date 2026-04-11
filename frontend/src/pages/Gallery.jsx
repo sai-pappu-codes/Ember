@@ -34,7 +34,7 @@ function Gallery() {
     return <div className="spinner"></div>;
   }
 
-  // Local images for gallery - all 14 images
+  // Local images for gallery - all 15 images
   const localImages = [
     { id: 1, url: '/images/gallery-cafe-interior.webp', caption: 'Elegant Dining Room' },
     { id: 2, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' },
@@ -43,13 +43,14 @@ function Gallery() {
     { id: 5, url: '/images/caprese-salad.jpg', caption: 'Fresh Caprese Salad' },
     { id: 6, url: '/images/tiramisu.jpg', caption: 'Classic Tiramisu' },
     { id: 7, url: '/images/dessert-closeup.jpg', caption: 'Exquisite Desserts' },
-    { id: 8, url: '/images/cocktail-bar.jpg', caption: 'Signature Cocktails' },
-    { id: 9, url: '/images/espresso-coffee.jpg', caption: 'Premium Espresso' },
-    { id: 10, url: '/images/wine-cellar.jpg', caption: 'Wine Collection' },
-    { id: 11, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
-    { id: 12, url: '/images/elegant-table.jpg', caption: 'Fine Dining Setup' },
-    { id: 13, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
-    { id: 14, url: '/images/gallery-special-event.webp', caption: 'Private Events' }
+    { id: 8, url: '/images/elegant-desserts.jpg', caption: 'Tiramisu & Cheesecake by Candlelight' },
+    { id: 9, url: '/images/cocktail-bar.jpg', caption: 'Signature Cocktails' },
+    { id: 10, url: '/images/espresso-coffee.jpg', caption: 'Premium Espresso' },
+    { id: 11, url: '/images/wine-cellar.jpg', caption: 'Wine Collection' },
+    { id: 12, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
+    { id: 13, url: '/images/elegant-table.jpg', caption: 'Fine Dining Setup' },
+    { id: 14, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
+    { id: 15, url: '/images/gallery-special-event.webp', caption: 'Private Events' }
   ];
 
   return (
