@@ -34,7 +34,7 @@ function Gallery() {
     return <div className="spinner"></div>;
   }
 
-  // Local images for gallery - all 15 images
+  // Local images for gallery - now 21 images including new menu items
   const localImages = [
     { id: 1, url: '/images/gallery-cafe-interior.webp', caption: 'Elegant Dining Room' },
     { id: 2, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' },
@@ -50,7 +50,13 @@ function Gallery() {
     { id: 12, url: '/images/bar-interior.jpg', caption: 'Our Premium Bar' },
     { id: 13, url: '/images/elegant-table.jpg', caption: 'Fine Dining Setup' },
     { id: 14, url: '/images/chef-hands.jpg', caption: 'Culinary Artistry' },
-    { id: 15, url: '/images/gallery-special-event.webp', caption: 'Private Events' }
+    { id: 15, url: '/images/gallery-special-event.webp', caption: 'Private Events' },
+    { id: 16, url: '/images/cheesecake.png', caption: 'Creamy New York Cheesecake' },
+    { id: 17, url: '/images/vegetable-risotto.png', caption: 'Wild Mushroom Risotto' },
+    { id: 18, url: '/images/caesar-salad.png', caption: 'Classic Caesar Salad' },
+    { id: 19, url: '/images/red-wine.png', caption: 'Selection of Fine Red Wines' },
+    { id: 20, url: '/images/white-wine.png', caption: 'Crisp White Wine Collection' },
+    { id: 21, url: '/images/craft-beer.png', caption: 'Local Craft Beer Selection' }
   ];
 
   return (
