@@ -67,7 +67,13 @@ function Menu() {
                       'Ribeye Steak': '/images/gallery-ribeye-steak.webp',
                       'Tiramisu': '/images/tiramisu.jpg',
                       'Bruschetta': '/images/caprese-salad.jpg',
-                      'Espresso': '/images/espresso-coffee.jpg'
+                      'Espresso': '/images/espresso-coffee.jpg',
+                      'Cheesecake': '/images/cheesecake.png',
+                      'Vegetable Risotto': '/images/vegetable-risotto.png',
+                      'Caesar Salad': '/images/caesar-salad.png',
+                      'Red Wine (Glass)': '/images/red-wine.png',
+                      'White Wine (Glass)': '/images/white-wine.png',
+                      'Craft Beer': '/images/craft-beer.png'
                     };
                     
                     return (

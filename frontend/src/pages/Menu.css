@@ -4,18 +4,11 @@
   padding-bottom: 4rem;
 }
 
-.page-hero {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/gallery-ribeye-steak.webp');
+/* Override global page-hero for menu specific background */
+.menu-page .page-hero {
+  background: linear-gradient(rgba(139,69,19,0.9), rgba(212,175,55,0.9)), url('/images/gallery-ribeye-steak.webp');
   background-size: cover;
   background-position: center;
-  padding: 150px 0 100px;
-  text-align: center;
-  color: white;
-}
-
-.page-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
 }
 
 .menu-filters {
@@ -35,12 +28,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
   background: var(--primary-color);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .menu-section {
@@ -49,10 +48,14 @@
 
 .menu-category-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--primary-color);
   margin-bottom: 2rem;
   position: relative;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .menu-category-title::after {
@@ -109,6 +112,9 @@
 .menu-item-name {
   color: var(--primary-color);
   font-size: 1.3rem;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .menu-item-price {
@@ -120,6 +126,9 @@
 .menu-item-description {
   color: #666;
   line-height: 1.6;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .vegetarian-badge {

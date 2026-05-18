@@ -49,6 +49,39 @@
   animation-fill-mode: both;
 }
 
+.hero-buttons .btn {
+  padding: 14px 35px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .btn-primary {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
+}
+
+.hero-buttons .btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.hero-buttons .btn-secondary {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
+}
+
+.hero-buttons .btn-secondary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white !important;
+  transform: translateY(-2px);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -123,6 +156,24 @@
 .cta-section {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
+}
+
+.cta-section .btn {
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid white;
+}
+
+.cta-section .btn:hover {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-bg);
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 1.1rem;
 }
 
 .contact-grid {

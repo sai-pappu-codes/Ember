@@ -10,6 +10,9 @@
   font-weight: 300;
   margin-bottom: 2rem;
   color: var(--primary-color);
+  font-family: var(--font-subheading);
+  line-height: 1.8;
+  letter-spacing: 0.5px;
 }
 
 .founders-grid {
@@ -26,10 +29,20 @@
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
+.founder-card h3 {
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
 .founder-title {
   color: var(--secondary-color);
   font-style: italic;
   margin-bottom: 1rem;
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 .philosophy-grid {
@@ -47,6 +60,10 @@
 .philosophy-item h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--primary-color);
 }
 
 .awards-list {
@@ -69,4 +86,6 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--secondary-color);
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
 }
