@@ -21,8 +21,8 @@ A sophisticated, full-stack web application for Café Fausse, an elegant fine-di
 
 ### 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd responsive-web-app
+git clone https://github.com/chindris-mihai-alexandru/cafe-fausse.git
+cd cafe-fausse
 ```
 
 ### 2. Set up environment variables
@@ -45,9 +45,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# Initialize database migrations
-flask db init
-flask db migrate -m "Initial migration"
+# Initialize database
 flask db upgrade
 
 # Run the Flask server
@@ -70,27 +68,29 @@ The application will be available at:
 ## 📁 Project Structure
 
 ```
-responsive-web-app/
+cafe-fausse/
 ├── backend/              # Flask backend
-│   ├── app.py           # Main application file
+│   ├── app_cafe.py      # Main application file
 │   ├── config.py        # Configuration settings
 │   ├── models/          # Database models
-│   ├── routes/          # API routes
 │   └── requirements.txt # Python dependencies
 ├── frontend/            # React frontend
 │   ├── src/
 │   │   ├── components/  # React components
+│   │   ├── pages/       # Page components
 │   │   ├── services/    # API services
-│   │   ├── App.jsx      # Main app component
-│   │   └── main.jsx     # Entry point
+│   │   └── App_cafe.jsx # Main app component
+│   ├── public/
+│   │   └── images/      # Restaurant images
 │   ├── package.json     # Node dependencies
 │   └── vite.config.js   # Vite configuration
 ├── database/            # Database related files
-│   ├── migrations/      # Database migrations
-│   ├── seeds/          # Seed data
-│   ├── schema.sql      # Application schema (customers, reservations)
-│   ├── seed.sql        # Sample data
-│   └── queries.sql     # Handy demo/debug queries
+│   ├── schema.sql       # Application schema
+│   └── queries.sql      # Demo queries
+├── docs/                # Documentation
+│   ├── AI_TOOLS_USAGE.md
+│   ├── WARP.md
+│   └── pgadmin_servers.json
 ├── .env.example        # Environment variables template
 └── README.md           # This file
 ```
@@ -131,13 +131,6 @@ psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM customers;" || true
 psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM reservations;" || true
 ```
 
-### Database Migrations
-
-```bash
-cd backend
-flask db migrate -m "Description of changes"
-flask db upgrade
-```
 
 
 ## 📦 Production Build
@@ -166,36 +159,6 @@ See `.env.example` for all available configuration options:
 - `POSTGRES_PASSWORD`: PostgreSQL password
 - `POSTGRES_DB`: Database name
 
-## 📚 API Documentation
+## 📝 Course Project
 
-### Health Check
-- **GET** `/api/health` - Check API status
-
-### API Information
-- **GET** `/api` - Get API information and available endpoints
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For support, please create an issue in the repository or contact the development team.
-
-## 🔄 Next Steps
-
-1. Add authentication and authorization
-2. Implement user management
-3. Add more API endpoints
-4. Set up CI/CD pipeline
-5. Add comprehensive test coverage
-6. Implement caching strategy
-7. Add monitoring and logging
+This is a student submission for the Web Application and Interface Design course, demonstrating a full-stack restaurant website with React, Flask, and PostgreSQL.
