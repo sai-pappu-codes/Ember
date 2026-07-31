@@ -33,20 +33,30 @@ function Reservations() {
     const timeSlot = `${formData.date}T${formData.time}:00`;
 
     try {
+      const payload = {
+        customer_name: formData.customer_name,
+        email: formData.email,
+        phone_number: formData.phone_number,
+        number_of_guests: Number(formData.number_of_guests),
+        // Send both time_slot and the original fields so backend can accept either
+        time_slot: timeSlot,
+        date: formData.date,
+        time: formData.time,
+        special_requests: formData.special_requests,
+        newsletter_signup: formData.newsletter_signup,
+      };
+
       const response = await fetch('/api/reservations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          time_slot: timeSlot
-        }),
+        body: JSON.stringify(payload),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setMessage({
           type: 'success',
           text: `Reservation confirmed! Table ${data.reservation.table_number} has been reserved for you.`

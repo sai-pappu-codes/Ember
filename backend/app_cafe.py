@@ -245,32 +245,72 @@ def get_menu():
 @app.route('/api/reservations', methods=['POST'])
 def create_reservation():
     """Create a new reservation"""
-    data = request.get_json()
-    
-    # Validate required fields
-    required_fields = ['customer_name', 'email', 'time_slot', 'number_of_guests']
-    for field in required_fields:
+    data = request.get_json() or {}
+
+    # Validate required top-level fields (allow time_slot OR date+time)
+    base_required = ['customer_name', 'email', 'number_of_guests']
+    for field in base_required:
         if field not in data:
             return jsonify({"error": f"Missing required field: {field}"}), 400
-    
+
+    # Coerce and validate number_of_guests
+    try:
+        number_of_guests = int(data.get('number_of_guests'))
+    except (TypeError, ValueError):
+        return jsonify({"error": "Number of guests must be an integer between 1 and 12"}), 400
+    if number_of_guests < 1 or number_of_guests > 12:
+        return jsonify({"error": "Number of guests must be between 1 and 12"}), 400
+
     # Validate email
     if not validate_email(data['email']):
         return jsonify({"error": "Invalid email format"}), 400
-    
-    # Validate number of guests
-    if data['number_of_guests'] < 1 or data['number_of_guests'] > 12:
-        return jsonify({"error": "Number of guests must be between 1 and 12"}), 400
-    
-    # Parse time slot
-    try:
-        time_slot = datetime.fromisoformat(data['time_slot'])
-    except:
-        return jsonify({"error": "Invalid time format. Use ISO format (YYYY-MM-DDTHH:MM:SS)"}), 400
-    
+
+    # Parse time slot - accept ISO time_slot OR date+time in various formats
+    date_str = data.get('date')
+    time_str = data.get('time')
+
+    # Helper to normalize date
+    def normalize_date(ds: str) -> str:
+        if ds is None:
+            return None
+        if '.' in ds:
+            # Support DD.MM.YYYY
+            try:
+                d, m, y = ds.split('.')
+                return f"{y}-{m.zfill(2)}-{d.zfill(2)}"
+            except Exception:
+                return None
+        return ds  # Assume already YYYY-MM-DD
+
+    # Build candidate strings to try parsing
+    candidates = []
+    if data.get('time_slot'):
+        candidates.append(data.get('time_slot'))
+    nd = normalize_date(date_str)
+    if nd and time_str:
+        tnorm = time_str if len(time_str.split(':')) == 3 else f"{time_str}:00"
+        candidates.append(f"{nd}T{tnorm}")
+
+    if not candidates:
+        return jsonify({"error": "Missing required field: time_slot (or provide date and time)"}), 400
+
+    time_slot = None
+    parse_error = None
+    for cand in candidates:
+        try:
+            time_slot = datetime.fromisoformat(cand)
+            break
+        except Exception as e:
+            parse_error = e
+            continue
+
+    if time_slot is None:
+        return jsonify({"error": "Invalid time format. Use YYYY-MM-DD or DD.MM.YYYY with HH:MM"}), 400
+
     # Check restaurant hours
     hour = time_slot.hour
     day_of_week = time_slot.weekday()
-    
+
     # Monday-Saturday: 5PM-11PM (17:00-23:00)
     # Sunday: 5PM-9PM (17:00-21:00)
     if day_of_week == 6:  # Sunday
@@ -279,15 +319,15 @@ def create_reservation():
     else:
         if hour < 17 or hour > 23:
             return jsonify({"error": "Restaurant is closed at this time. Monday-Saturday hours: 5:00 PM - 11:00 PM"}), 400
-    
+
     # Check table availability
-    available_tables = check_table_availability(time_slot, data['number_of_guests'])
+    available_tables = check_table_availability(time_slot, number_of_guests)
     if not available_tables:
         return jsonify({
             "error": "No tables available for this time slot. Please choose another time.",
             "status": "unavailable"
         }), 400
-    
+
     try:
         # Check if customer exists
         customer = Customer.query.filter_by(email=data['email']).first()
@@ -301,24 +341,24 @@ def create_reservation():
             )
             db.session.add(customer)
             db.session.flush()
-        
+
         # Create reservation (assign a random available table)
         reservation = Reservation(
             customer_id=customer.customer_id,
             time_slot=time_slot,
             table_number=random.choice(available_tables),
-            number_of_guests=data['number_of_guests'],
+            number_of_guests=number_of_guests,
             special_requests=data.get('special_requests')
         )
         db.session.add(reservation)
         db.session.commit()
-        
+
         return jsonify({
             "success": True,
             "message": "Reservation confirmed!",
             "reservation": reservation.to_dict()
         }), 201
-        
+
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500

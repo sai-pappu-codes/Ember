@@ -1,0 +1,38 @@
+IMPORTANT: Images Excluded from ZIP
+====================================
+
+To meet the 10MB submission limit, the image files have been excluded from this ZIP.
+
+The application will still run but images won't display unless you:
+
+1. Use the images provided in the course materials
+2. Or download them from the GitHub repository:
+   https://github.com/chindris-mihai-alexandru/cafe-fausse
+
+All 21 images should be placed in:
+frontend/public/images/
+
+The application code and functionality remain fully intact and demonstrable.
+
+Image files excluded (but available in course materials):
+- gallery-cafe-interior.webp
+- home-cafe-fausse.webp  
+- gallery-ribeye-steak.webp
+- gallery-special-event.webp
+- salmon-dish.jpg
+- caprese-salad.jpg
+- tiramisu.jpg
+- dessert-closeup.jpg
+- cocktail-bar.jpg
+- espresso-coffee.jpg
+- wine-cellar.jpg
+- bar-interior.jpg
+- elegant-table.jpg
+- chef-hands.jpg
+- elegant-desserts.jpg
+- cheesecake.png
+- vegetable-risotto.png
+- caesar-salad.png
+- red-wine.png
+- white-wine.png
+- craft-beer.png
