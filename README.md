@@ -70,29 +70,31 @@ The application will be available at:
 ```
 cafe-fausse/
 ├── backend/              # Flask backend
-│   ├── app_cafe.py      # Main application file
+│   ├── app_cafe.py      # Main Flask application
 │   ├── config.py        # Configuration settings
 │   ├── models/          # Database models
+│   ├── migrations/      # Database migrations
 │   └── requirements.txt # Python dependencies
 ├── frontend/            # React frontend
 │   ├── src/
 │   │   ├── components/  # React components
-│   │   ├── pages/       # Page components
+│   │   ├── pages/       # Page components  
 │   │   ├── services/    # API services
 │   │   └── App_cafe.jsx # Main app component
 │   ├── public/
-│   │   └── images/      # Restaurant images
+│   │   └── images/      # Restaurant images (21 images)
 │   ├── package.json     # Node dependencies
 │   └── vite.config.js   # Vite configuration
-├── database/            # Database related files
-│   ├── schema.sql       # Application schema
+├── database/            # Database files
+│   ├── schema.sql       # PostgreSQL schema
+│   ├── seed.sql         # Sample data
 │   └── queries.sql      # Demo queries
 ├── docs/                # Documentation
-│   ├── AI_TOOLS_USAGE.md
-│   ├── WARP.md
-│   └── pgadmin_servers.json
-├── .env.example        # Environment variables template
-└── README.md           # This file
+│   └── AI_TOOLS_USAGE.md # AI tools documentation (required)
+├── .env.example         # Environment variables template
+├── README.md            # Project documentation
+├── WARP.md              # Development guidelines
+└── Makefile             # Build automation
 ```
 
 ## 🛠️ Development

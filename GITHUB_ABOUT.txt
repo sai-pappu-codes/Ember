@@ -1,1 +1,0 @@
-Full-stack restaurant web application featuring React frontend, Flask REST API, and PostgreSQL database. Student project demonstrating responsive design, reservation system, and modern web development practices.
