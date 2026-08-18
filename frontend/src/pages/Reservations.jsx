@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Reservations.css';
+import api from '../services/api';
 
 function Reservations() {
   const [formData, setFormData] = useState({
@@ -46,17 +47,9 @@ function Reservations() {
         newsletter_signup: formData.newsletter_signup,
       };
 
-      const response = await fetch('/api/reservations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const { data } = await api.post('/reservations', payload);
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (data && data.success) {
         setMessage({
           type: 'success',
           text: `Reservation confirmed! Table ${data.reservation.table_number} has been reserved for you.`

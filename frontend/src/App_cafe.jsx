@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App_cafe.css';
+import api from './services/api';
 
 // Import page components
 import Home from './pages/Home';
@@ -71,17 +72,9 @@ function NewsletterForm() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
+      const { data } = await api.post('/newsletter', { email });
       
-      if (response.ok) {
+      if (data && (data.success || data.message)) {
         setMessage('Thank you for subscribing!');
         setEmail('');
       } else {

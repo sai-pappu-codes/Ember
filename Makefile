@@ -31,8 +31,15 @@ db-migrate: ## Run database migrations
 backend: ## Run Flask backend
 	cd backend && . venv/bin/activate && python app_cafe.py
 
-frontend: ## Run React frontend
+frontend: ## Run React frontend (dev proxy)
 	cd frontend && npm run dev
+
+frontend-fixed: ## Run React frontend on fixed IPv4/port (no port hopping)
+	cd frontend && npm run dev -- --host 127.0.0.1 --port 5176 --strictPort
+
+frontend-preview: ## Serve production build via Python http.server on 127.0.0.1:5177
+	cd frontend && npm run build
+	python3 -m http.server 5177 --bind 127.0.0.1 --directory frontend/dist
 
 build: ## Build frontend for production
 	cd frontend && npm run build

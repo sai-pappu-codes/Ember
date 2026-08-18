@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Gallery.css';
+import api from '../services/api';
 
 function Gallery() {
   const [galleryData, setGalleryData] = useState(null);
@@ -12,8 +13,7 @@ function Gallery() {
 
   const fetchGallery = async () => {
     try {
-      const response = await fetch('/api/gallery');
-      const data = await response.json();
+      const { data } = await api.get('/gallery');
       setGalleryData(data);
     } catch (error) {
       console.error('Error fetching gallery:', error);

@@ -145,9 +145,39 @@ npm run build
 
 ### Backend Deployment
 ```bash
+# Backend now uses port 5001 by default
 cd backend
-gunicorn -w 4 -b 127.0.0.1:5000 app_cafe:app
+gunicorn -w 4 -b 127.0.0.1:5001 app_cafe:app
 ```
+
+## 🔄 Updated Notes (2025-09-15)
+
+- Backend Flask API runs on port 5001 to avoid macOS AirPlay conflicts on 5000
+- Frontend calls the API directly via axios using VITE_API_URL
+- Recommended local setups:
+  - Dev (fixed IPv4 + port):
+    ```bash
+    # Frontend
+    cd frontend
+    npm run dev -- --host 127.0.0.1 --port 5176 --strictPort
+    # Backend
+    cd backend && source venv/bin/activate && python app_cafe.py  # http://127.0.0.1:5001
+    ```
+  - Static preview (no dev proxy needed):
+    ```bash
+    # Build and serve the production bundle
+    cd frontend && npm run build
+    python3 -m http.server 5177 --bind 127.0.0.1 --directory frontend/dist
+    # App: http://127.0.0.1:5177  |  API: http://127.0.0.1:5001
+    ```
+
+### Frontend API configuration
+
+- Set the API base URL in `frontend/.env.local`:
+  ```bash
+  VITE_API_URL=http://127.0.0.1:5001/api
+  ```
+- All UI API calls go through `src/services/api.js` (axios). The Vite dev proxy is optional fallback.
 
 ## 🔧 Configuration
 

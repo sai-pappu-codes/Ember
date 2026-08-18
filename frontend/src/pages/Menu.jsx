@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Menu.css';
+import api from '../services/api';
 
 function Menu() {
   const [menuData, setMenuData] = useState(null);
@@ -12,8 +13,7 @@ function Menu() {
 
   const fetchMenu = async () => {
     try {
-      const response = await fetch('/api/menu');
-      const data = await response.json();
+      const { data } = await api.get('/menu');
       setMenuData(data);
     } catch (error) {
       console.error('Error fetching menu:', error);

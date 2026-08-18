@@ -17,8 +17,10 @@ make db-start       # Ensure local PostgreSQL database exists
 make db-migrate     # Run database migrations
 
 # Development workflow
-make backend        # Start Flask API on port 5000
-make frontend       # Start React dev server on port 5173
+make backend        # Start Flask API on port 5001
+make frontend       # Start React dev server (default Vite)
+make frontend-fixed # Start React dev server on 127.0.0.1:5176 with strictPort
+make frontend-preview # Build and serve static bundle on 127.0.0.1:5177
 ```
 
 ### Database Management
@@ -43,8 +45,8 @@ cd backend && flask db downgrade                 # Rollback migration
 # Frontend production build
 cd frontend && npm run build  # Creates dist/ directory
 
-# Backend production server
-cd backend && gunicorn -w 4 -b 127.0.0.1:5000 app_cafe:app
+# Backend production server (uses port 5001)
+cd backend && gunicorn -w 4 -b 127.0.0.1:5001 app_cafe:app
 ```
 
 ### Code Quality
@@ -64,7 +66,7 @@ cd backend && black .  # Auto-format Python code
 The frontend uses Vite for fast development with hot module replacement. Key architectural decisions:
 
 - **API Communication**: All API calls go through `frontend/src/services/api.js` which configures axios with interceptors for authentication and error handling
-- **Proxy Configuration**: Development server proxies `/api` requests to `localhost:5000` (configured in `vite.config.js`)
+- **API Base URL**: axios client uses `VITE_API_URL` (e.g., http://127.0.0.1:5001/api). Vite proxy is optional.
 - **Component Structure**: Components are organized in `frontend/src/components/` (to be created as needed)
 - **Routing**: React Router is installed for client-side routing (implementation pending)
 
@@ -117,7 +119,7 @@ Key environment variables (defined in `.env`):
 - `DATABASE_URL`: PostgreSQL connection string
 - `SECRET_KEY`: Flask session secret
 - `FLASK_ENV`: Set to 'development' for debug mode
-- `VITE_API_URL`: Frontend API base URL (optional, defaults to proxy)
+- `VITE_API_URL`: Frontend API base URL, e.g. `http://127.0.0.1:5001/api`
 
 ## Database
 

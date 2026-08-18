@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Newsletter.css';
+import api from '../services/api';
 
 function Newsletter() {
   const [email, setEmail] = useState('');
@@ -18,17 +19,9 @@ function Newsletter() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
+      const { data } = await api.post('/newsletter', { email });
 
-      const data = await response.json();
-
-      if (response.ok) {
+      if (data && (data.success || data.message)) {
         setMessage('Thank you for subscribing to our newsletter!');
         setEmail('');
       } else {
