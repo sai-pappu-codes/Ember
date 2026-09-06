@@ -61,8 +61,9 @@ npm run dev
 ```
 
 The application will be available at:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000
+- Frontend (dev): http://localhost:5173 (or http://127.0.0.1:5176 via `make frontend-fixed`)
+- Frontend (preview): http://127.0.0.1:5177 after `make frontend-preview`
+- Backend API: http://127.0.0.1:5001
 - pgAdmin (optional): use the desktop app (Applications → pgAdmin 4) or `brew install --cask pgadmin4`
 
 ## 📁 Project Structure
@@ -107,7 +108,7 @@ source venv/bin/activate
 python app_cafe.py
 ```
 
-The Flask API will run on `http://localhost:5000` with hot-reloading enabled.
+The Flask API will run on `http://127.0.0.1:5001` with hot-reloading enabled.
 
 ### Frontend Development
 
@@ -117,6 +118,10 @@ npm run dev
 ```
 
 The React app will run on `http://localhost:5173` with hot module replacement.
+
+Alternative local options:
+- Fixed IPv4 and strict port (for stable dev): `make frontend-fixed` → http://127.0.0.1:5176
+- Static preview (production build): `make frontend-preview` → http://127.0.0.1:5177
 
 ### Database Management
 
@@ -150,34 +155,6 @@ cd backend
 gunicorn -w 4 -b 127.0.0.1:5001 app_cafe:app
 ```
 
-## 🔄 Updated Notes (2025-09-15)
-
-- Backend Flask API runs on port 5001 to avoid macOS AirPlay conflicts on 5000
-- Frontend calls the API directly via axios using VITE_API_URL
-- Recommended local setups:
-  - Dev (fixed IPv4 + port):
-    ```bash
-    # Frontend
-    cd frontend
-    npm run dev -- --host 127.0.0.1 --port 5176 --strictPort
-    # Backend
-    cd backend && source venv/bin/activate && python app_cafe.py  # http://127.0.0.1:5001
-    ```
-  - Static preview (no dev proxy needed):
-    ```bash
-    # Build and serve the production bundle
-    cd frontend && npm run build
-    python3 -m http.server 5177 --bind 127.0.0.1 --directory frontend/dist
-    # App: http://127.0.0.1:5177  |  API: http://127.0.0.1:5001
-    ```
-
-### Frontend API configuration
-
-- Set the API base URL in `frontend/.env.local`:
-  ```bash
-  VITE_API_URL=http://127.0.0.1:5001/api
-  ```
-- All UI API calls go through `src/services/api.js` (axios). The Vite dev proxy is optional fallback.
 
 ## 🔧 Configuration
 
@@ -190,6 +167,7 @@ See `.env.example` for all available configuration options:
 - `POSTGRES_USER`: PostgreSQL username
 - `POSTGRES_PASSWORD`: PostgreSQL password
 - `POSTGRES_DB`: Database name
+- `VITE_API_URL`: Frontend API base URL for axios (e.g., `http://127.0.0.1:5001/api`). All UI API calls go through `frontend/src/services/api.js`.
 
 ## 📝 Course Project
 
