@@ -3,9 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from backend.app import db
 
 class Customer(db.Model):
-    """Customer model for Cafe Fausse"""
+    """Customer model for EmberTable"""
     __tablename__ = 'customers'
-    
+
     customer_id = db.Column(db.Integer, primary_key=True)
     customer_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -13,13 +13,13 @@ class Customer(db.Model):
     newsletter_signup = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     # Relationship with reservations
     reservations = db.relationship('Reservation', backref='customer', lazy=True, cascade='all, delete-orphan')
-    
+
     def __repr__(self):
         return f'<Customer {self.customer_name}>'
-    
+
     def to_dict(self):
         """Convert customer object to dictionary"""
         return {

@@ -3,9 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from backend.app import db
 
 class Reservation(db.Model):
-    """Reservation model for Cafe Fausse"""
+    """Reservation model for EmberTable"""
     __tablename__ = 'reservations'
-    
+
     reservation_id = db.Column(db.Integer, primary_key=True)
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.customer_id'), nullable=False)
     time_slot = db.Column(db.DateTime, nullable=False)
@@ -15,10 +15,10 @@ class Reservation(db.Model):
     special_requests = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     def __repr__(self):
         return f'<Reservation {self.reservation_id} - Table {self.table_number}>'
-    
+
     def to_dict(self):
         """Convert reservation object to dictionary"""
         return {

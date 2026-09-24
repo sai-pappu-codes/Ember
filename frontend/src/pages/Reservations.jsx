@@ -104,7 +104,7 @@ function Reservations() {
         <div className="reservation-content">
           <div className="reservation-form-section">
             <h2>Reserve Your Table</h2>
-            
+
             {message && (
               <div className={`alert alert-${message.type}`}>
                 {message.text}
@@ -234,16 +234,16 @@ function Reservations() {
               <p>Monday - Saturday: 5:00 PM - 11:00 PM</p>
               <p>Sunday: 5:00 PM - 9:00 PM</p>
             </div>
-            
+
             <div className="info-card">
               <h4>Cancellation Policy</h4>
               <p>Please call us at least 24 hours in advance if you need to cancel or modify your reservation.</p>
             </div>
-            
+
             <div className="info-card">
               <h4>Contact Us</h4>
               <p>Phone: (202) 555-4567</p>
-              <p>Email: reservations@cafefausse.com</p>
+              <p>Email: reservations@embertable.example</p>
             </div>
           </div>
         </div>

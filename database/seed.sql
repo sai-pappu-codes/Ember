@@ -1,6 +1,6 @@
--- Seed data for Cafe Fausse (safe to run multiple times)
+-- Seed data for EmberTable (safe to run multiple times)
 INSERT INTO public.customers (customer_name, email, phone_number, newsletter_signup)
-VALUES 
+VALUES
   ('Test Customer', 'test@example.com', '555-1234', TRUE)
 ON CONFLICT (email) DO NOTHING;
 

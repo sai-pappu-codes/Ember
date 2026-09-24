@@ -16,7 +16,7 @@ function Navigation() {
     <nav className="main-nav">
       <div className="nav-container">
         <Link to="/" className="logo">
-          <h1>Café Fausse</h1>
+          <h1>EmberTable</h1>
           <span className="tagline">Fine Dining Experience</span>
         </Link>
         <ul className="nav-links">
@@ -40,7 +40,7 @@ function Footer() {
           <h3>Contact Us</h3>
           <p>1234 Culinary Ave, Suite 100<br />Washington, DC 20002</p>
           <p>Phone: (202) 555-4567</p>
-          <p>Email: info@cafefausse.com</p>
+          <p>Email: info@embertable.example</p>
         </div>
         <div className="footer-section">
           <h3>Hours</h3>
@@ -54,7 +54,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Café Fausse. All rights reserved.</p>
+        <p>&copy; 2025 EmberTable. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -73,7 +73,7 @@ function NewsletterForm() {
 
     try {
       const { data } = await api.post('/newsletter', { email });
-      
+
       if (data && (data.success || data.message)) {
         setMessage('Thank you for subscribing!');
         setEmail('');

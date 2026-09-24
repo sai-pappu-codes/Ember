@@ -1,6 +1,8 @@
-# Café Fausse - Fine Dining Web Application
+# EmberTable - Fine Dining Web Application
 
-A sophisticated, full-stack web application for Café Fausse, an elegant fine-dining restaurant. This project features a React frontend with responsive design, Flask REST API backend, and PostgreSQL database for managing reservations and customer data.
+Maintained by **Saikrishnap** · [GitHub](https://github.com/saikrishnap0)
+
+A sophisticated, full-stack web application for EmberTable, an elegant fine-dining restaurant. This project features a React frontend with responsive design, Flask REST API backend, and PostgreSQL database for managing reservations and customer data.
 
 ## 🏗️ Architecture
 
@@ -21,8 +23,8 @@ A sophisticated, full-stack web application for Café Fausse, an elegant fine-di
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/chindris-mihai-alexandru/cafe-fausse.git
-cd cafe-fausse
+git clone https://github.com/saikrishnap0/embertable.git
+cd embertable
 ```
 
 ### 2. Set up environment variables
@@ -34,8 +36,8 @@ cp .env.example .env
 ### 3. Prepare the database
 ```bash
 # Ensure PostgreSQL is running (e.g., Homebrew: brew services start postgresql@16 or use Postgres.app)
-createdb cafe_fausse_dev || true
-psql -d cafe_fausse_dev -c "\\dt"
+createdb embertable_dev || true
+psql -d embertable_dev -c "\\dt"
 ```
 
 ### 4. Set up the backend
@@ -69,7 +71,7 @@ The application will be available at:
 ## 📁 Project Structure
 
 ```
-cafe-fausse/
+embertable/
 ├── backend/              # Flask backend
 │   ├── app_cafe.py      # Main Flask application
 │   ├── config.py        # Configuration settings
@@ -79,7 +81,7 @@ cafe-fausse/
 ├── frontend/            # React frontend
 │   ├── src/
 │   │   ├── components/  # React components
-│   │   ├── pages/       # Page components  
+│   │   ├── pages/       # Page components
 │   │   ├── services/    # API services
 │   │   └── App_cafe.jsx # Main app component
 │   ├── public/
@@ -130,12 +132,12 @@ Alternative local options:
 brew services start postgresql@16  # or launch Postgres.app
 
 # Create the dev database (idempotent)
-createdb cafe_fausse_dev || true
+createdb embertable_dev || true
 
 # Access PostgreSQL CLI and run quick checks
-psql -d cafe_fausse_dev -c "\\dt"
-psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM customers;" || true
-psql -d cafe_fausse_dev -c "SELECT COUNT(*) FROM reservations;" || true
+psql -d embertable_dev -c "\\dt"
+psql -d embertable_dev -c "SELECT COUNT(*) FROM customers;" || true
+psql -d embertable_dev -c "SELECT COUNT(*) FROM reservations;" || true
 ```
 
 

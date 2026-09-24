@@ -15,9 +15,9 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/cafe_fausse_dev')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/embertable_dev')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'cafe-fausse-secret-key-change-in-production')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'embertable-secret-key-change-in-production')
 
 # Initialize extensions
 db = SQLAlchemy(app)
@@ -26,9 +26,9 @@ CORS(app)
 
 # Models
 class Customer(db.Model):
-    """Customer model for Cafe Fausse"""
+    """Customer model for EmberTable"""
     __tablename__ = 'customers'
-    
+
     customer_id = db.Column(db.Integer, primary_key=True)
     customer_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -36,10 +36,10 @@ class Customer(db.Model):
     newsletter_signup = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     # Relationship with reservations
     reservations = db.relationship('Reservation', backref='customer', lazy=True, cascade='all, delete-orphan')
-    
+
     def to_dict(self):
         return {
             'customer_id': self.customer_id,
@@ -51,9 +51,9 @@ class Customer(db.Model):
         }
 
 class Reservation(db.Model):
-    """Reservation model for Cafe Fausse"""
+    """Reservation model for EmberTable"""
     __tablename__ = 'reservations'
-    
+
     reservation_id = db.Column(db.Integer, primary_key=True)
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.customer_id'), nullable=False)
     time_slot = db.Column(db.DateTime, nullable=False)
@@ -63,7 +63,7 @@ class Reservation(db.Model):
     special_requests = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     def to_dict(self):
         return {
             'reservation_id': self.reservation_id,
@@ -88,19 +88,19 @@ def check_table_availability(time_slot, number_of_guests):
     # Check reservations within 2 hours of the requested time
     start_time = time_slot - timedelta(hours=1)
     end_time = time_slot + timedelta(hours=1)
-    
+
     existing_reservations = Reservation.query.filter(
         Reservation.time_slot.between(start_time, end_time),
         Reservation.status == 'confirmed'
     ).all()
-    
+
     occupied_tables = [r.table_number for r in existing_reservations]
     available_tables = [i for i in range(1, 31) if i not in occupied_tables]
-    
+
     # Check if we have enough tables for the party size
     # Assume each table can accommodate up to 4 guests
     tables_needed = (number_of_guests + 3) // 4  # Round up division
-    
+
     if len(available_tables) >= tables_needed:
         return available_tables[:tables_needed]
     return None
@@ -111,18 +111,18 @@ def health_check():
     """Health check endpoint"""
     return jsonify({
         "status": "healthy",
-        "message": "Cafe Fausse API is running",
-        "restaurant": "Cafe Fausse - Fine Dining Experience"
+        "message": "EmberTable API is running",
+        "restaurant": "EmberTable - Fine Dining Experience"
     }), 200
 
 @app.route('/api')
 def api_home():
     """API home endpoint"""
     return jsonify({
-        "message": "Welcome to Cafe Fausse API",
+        "message": "Welcome to EmberTable API",
         "version": "1.0.0",
         "restaurant_info": {
-            "name": "Cafe Fausse",
+            "name": "EmberTable",
             "address": "1234 Culinary Ave, Suite 100, Washington, DC 20002",
             "phone": "(202) 555-4567",
             "hours": {
@@ -373,13 +373,13 @@ def get_reservation(reservation_id):
 def newsletter_signup():
     """Newsletter signup"""
     data = request.get_json()
-    
+
     if 'email' not in data:
         return jsonify({"error": "Email is required"}), 400
-    
+
     if not validate_email(data['email']):
         return jsonify({"error": "Invalid email format"}), 400
-    
+
     try:
         # Check if customer exists
         customer = Customer.query.filter_by(email=data['email']).first()
@@ -395,10 +395,10 @@ def newsletter_signup():
             )
             db.session.add(customer)
             message = "Successfully subscribed to newsletter"
-        
+
         db.session.commit()
         return jsonify({"success": True, "message": message}), 200
-        
+
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
@@ -472,17 +472,17 @@ def get_reviews():
 def check_availability():
     """Check table availability for a specific time"""
     data = request.get_json()
-    
+
     if 'time_slot' not in data or 'number_of_guests' not in data:
         return jsonify({"error": "time_slot and number_of_guests are required"}), 400
-    
+
     try:
         time_slot = datetime.fromisoformat(data['time_slot'])
     except:
         return jsonify({"error": "Invalid time format"}), 400
-    
+
     available_tables = check_table_availability(time_slot, data['number_of_guests'])
-    
+
     return jsonify({
         "available": bool(available_tables),
         "tables_available": len(available_tables) if available_tables else 0,

@@ -1,4 +1,4 @@
-/* Global Styles for Cafe Fausse */
+/* Global Styles for EmberTable */
 :root {
   --primary-color: #8B4513;
   --secondary-color: #D4AF37;
@@ -307,11 +307,11 @@ a:hover {
   .section {
     padding: 60px 0;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .grid-2,
   .grid-3,
   .grid-4 {
@@ -323,7 +323,7 @@ a:hover {
   .section {
     padding: 40px 0;
   }
-  
+
   .section-title {
     font-size: 1.75rem;
   }

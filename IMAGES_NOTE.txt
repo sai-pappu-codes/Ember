@@ -7,7 +7,7 @@ The application will still run but images won't display unless you:
 
 1. Use the images provided in the course materials
 2. Or download them from the GitHub repository:
-   https://github.com/chindris-mihai-alexandru/cafe-fausse
+   https://github.com/saikrishnap0/embertable
 
 All 21 images should be placed in:
 frontend/public/images/
@@ -16,7 +16,7 @@ The application code and functionality remain fully intact and demonstrable.
 
 Image files excluded (but available in course materials):
 - gallery-cafe-interior.webp
-- home-cafe-fausse.webp  
+- home-embertable.webp
 - gallery-ribeye-steak.webp
 - gallery-special-event.webp
 - salmon-dish.jpg

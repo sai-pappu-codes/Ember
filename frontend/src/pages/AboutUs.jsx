@@ -5,7 +5,7 @@ function AboutUs() {
   return (
     <div className="about-page">
       <div className="page-hero">
-        <h1>About Café Fausse</h1>
+        <h1>About EmberTable</h1>
         <p>Our Story of Culinary Excellence</p>
       </div>
 
@@ -13,17 +13,17 @@ function AboutUs() {
         <section className="about-story">
           <h2>Our Story</h2>
           <p className="lead">
-            Founded in 2010 by Chef Antonio Rossi and restaurateur Maria Lopez, 
-            Café Fausse blends traditional Italian flavors with modern culinary innovation.
+            Founded in 2010 by Chef Antonio Rossi and restaurateur Maria Lopez,
+            EmberTable blends traditional Italian flavors with modern culinary innovation.
           </p>
           <p>
-            Our mission is to provide an unforgettable dining experience that reflects 
-            both quality and creativity. Every dish we serve is a testament to our 
+            Our mission is to provide an unforgettable dining experience that reflects
+            both quality and creativity. Every dish we serve is a testament to our
             commitment to excellence and our passion for exceptional cuisine.
           </p>
           <p>
-            Located in the heart of Washington, DC, Café Fausse has become a landmark 
-            destination for those seeking not just a meal, but a culinary journey that 
+            Located in the heart of Washington, DC, EmberTable has become a landmark
+            destination for those seeking not just a meal, but a culinary journey that
             engages all the senses.
           </p>
         </section>
@@ -35,19 +35,19 @@ function AboutUs() {
               <h3>Chef Antonio Rossi</h3>
               <p className="founder-title">Executive Chef & Co-Founder</p>
               <p>
-                With over 20 years of culinary experience across Europe and America, 
-                Chef Rossi brings innovation and tradition to every plate. Trained at 
-                Le Cordon Bleu Paris, he has worked in Michelin-starred restaurants 
-                before founding Café Fausse.
+                With over 20 years of culinary experience across Europe and America,
+                Chef Rossi brings innovation and tradition to every plate. Trained at
+                Le Cordon Bleu Paris, he has worked in Michelin-starred restaurants
+                before founding EmberTable.
               </p>
             </div>
             <div className="founder-card">
               <h3>Maria Lopez</h3>
               <p className="founder-title">Restaurateur & Co-Founder</p>
               <p>
-                Maria's vision for exceptional hospitality and attention to detail has 
-                shaped Café Fausse into the premier dining destination it is today. 
-                Her expertise in restaurant management ensures every guest receives 
+                Maria's vision for exceptional hospitality and attention to detail has
+                shaped EmberTable into the premier dining destination it is today.
+                Her expertise in restaurant management ensures every guest receives
                 an unforgettable experience.
               </p>
             </div>

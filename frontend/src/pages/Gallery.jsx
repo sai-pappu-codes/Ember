@@ -37,7 +37,7 @@ function Gallery() {
   // Local images for gallery - now 21 images including new menu items
   const localImages = [
     { id: 1, url: '/images/gallery-cafe-interior.webp', caption: 'Elegant Dining Room' },
-    { id: 2, url: '/images/home-cafe-fausse.webp', caption: 'Restaurant Exterior' },
+    { id: 2, url: '/images/home-embertable.webp', caption: 'Restaurant Exterior' },
     { id: 3, url: '/images/gallery-ribeye-steak.webp', caption: 'Signature Ribeye Steak' },
     { id: 4, url: '/images/salmon-dish.jpg', caption: 'Grilled Salmon' },
     { id: 5, url: '/images/caprese-salad.jpg', caption: 'Fresh Caprese Salad' },
@@ -63,7 +63,7 @@ function Gallery() {
     <div className="gallery-page">
       <div className="page-hero">
         <h1>Gallery</h1>
-        <p>A Visual Journey Through Café Fausse</p>
+        <p>A Visual Journey Through EmberTable</p>
       </div>
 
       <div className="container">
@@ -109,7 +109,7 @@ function Gallery() {
             <div className="review-card">
               <div className="review-stars">⭐⭐⭐⭐⭐</div>
               <p className="review-text">
-                "Exceptional ambiance and unforgettable flavors. Café Fausse delivers 
+                "Exceptional ambiance and unforgettable flavors. EmberTable delivers
                 an extraordinary dining experience every time."
               </p>
               <p className="review-author">- Gourmet Review</p>
@@ -117,7 +117,7 @@ function Gallery() {
             <div className="review-card">
               <div className="review-stars">⭐⭐⭐⭐⭐</div>
               <p className="review-text">
-                "A must-visit restaurant for food enthusiasts. The attention to detail 
+                "A must-visit restaurant for food enthusiasts. The attention to detail
                 and quality is unmatched in the DC area."
               </p>
               <p className="review-author">- The Daily Bite</p>

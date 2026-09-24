@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "========================================="
-echo "   CAFE FAUSSE - SYSTEM VERIFICATION"
+echo "   EMBERTABLE - SYSTEM VERIFICATION"
 echo "========================================="
 echo ""
 
@@ -27,19 +27,19 @@ fi
 # Check PostgreSQL
 echo ""
 echo "3. DATABASE STATUS:"
-if pg_isready -d cafe_fausse_dev > /dev/null 2>&1; then
-    echo "   ✅ PostgreSQL is running and cafe_fausse_dev is accessible"
-    
+if pg_isready -d embertable_dev > /dev/null 2>&1; then
+    echo "   ✅ PostgreSQL is running and embertable_dev is accessible"
+
     # Count records
-    CUSTOMERS=$(psql -d cafe_fausse_dev -t -c "SELECT COUNT(*) FROM customers;" 2>/dev/null | xargs)
-    RESERVATIONS=$(psql -d cafe_fausse_dev -t -c "SELECT COUNT(*) FROM reservations;" 2>/dev/null | xargs)
-    
+    CUSTOMERS=$(psql -d embertable_dev -t -c "SELECT COUNT(*) FROM customers;" 2>/dev/null | xargs)
+    RESERVATIONS=$(psql -d embertable_dev -t -c "SELECT COUNT(*) FROM reservations;" 2>/dev/null | xargs)
+
     echo "   📊 Data in database:"
     echo "      - Customers: $CUSTOMERS"
     echo "      - Reservations: $RESERVATIONS"
 else
     echo "   ❌ Database is NOT accessible"
-    echo "   To create: createdb cafe_fausse_dev"
+    echo "   To create: createdb embertable_dev"
 fi
 
 # Test API
