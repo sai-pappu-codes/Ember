@@ -1,8 +1,8 @@
-# EmberTable - Fine Dining Web Application
+# Ember - Fine Dining Web Application
 
 Maintained by **Saikrishnap** · [GitHub](https://github.com/saikrishnap0)
 
-A sophisticated, full-stack web application for EmberTable, an elegant fine-dining restaurant. This project features a React frontend with responsive design, Flask REST API backend, and PostgreSQL database for managing reservations and customer data.
+A sophisticated, full-stack web application for Ember, an elegant fine-dining restaurant. This project features a React frontend with responsive design, Flask REST API backend, and PostgreSQL database for managing reservations and customer data.
 
 ## 🏗️ Architecture
 
@@ -23,8 +23,8 @@ A sophisticated, full-stack web application for EmberTable, an elegant fine-dini
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/saikrishnap0/embertable.git
-cd embertable
+git clone https://github.com/sai-pappu-codes/Ember.git
+cd ember
 ```
 
 ### 2. Set up environment variables
@@ -36,8 +36,8 @@ cp .env.example .env
 ### 3. Prepare the database
 ```bash
 # Ensure PostgreSQL is running (e.g., Homebrew: brew services start postgresql@16 or use Postgres.app)
-createdb embertable_dev || true
-psql -d embertable_dev -c "\\dt"
+createdb ember_dev || true
+psql -d ember_dev -c "\\dt"
 ```
 
 ### 4. Set up the backend
@@ -71,7 +71,7 @@ The application will be available at:
 ## 📁 Project Structure
 
 ```
-embertable/
+ember/
 ├── backend/              # Flask backend
 │   ├── app_cafe.py      # Main Flask application
 │   ├── config.py        # Configuration settings
@@ -132,12 +132,12 @@ Alternative local options:
 brew services start postgresql@16  # or launch Postgres.app
 
 # Create the dev database (idempotent)
-createdb embertable_dev || true
+createdb ember_dev || true
 
 # Access PostgreSQL CLI and run quick checks
-psql -d embertable_dev -c "\\dt"
-psql -d embertable_dev -c "SELECT COUNT(*) FROM customers;" || true
-psql -d embertable_dev -c "SELECT COUNT(*) FROM reservations;" || true
+psql -d ember_dev -c "\\dt"
+psql -d ember_dev -c "SELECT COUNT(*) FROM customers;" || true
+psql -d ember_dev -c "SELECT COUNT(*) FROM reservations;" || true
 ```
 
 

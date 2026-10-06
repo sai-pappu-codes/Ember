@@ -1,4 +1,4 @@
--- EmberTable PostgreSQL schema
+-- Ember PostgreSQL schema
 -- This mirrors the SQLAlchemy models in backend/app_cafe.py
 
 -- Customers table

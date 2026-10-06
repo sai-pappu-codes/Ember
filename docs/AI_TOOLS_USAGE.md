@@ -1,6 +1,6 @@
 # AI Tooling Summary (Concise)
 
-Project: EmberTable – Full‑stack web application (React + Flask + PostgreSQL)
+Project: Ember – Full‑stack web application (React + Flask + PostgreSQL)
 
 Tools and where they helped
 - Code generation and pairing: AI assistant (model: gpt‑5 high reasoning)
@@ -39,7 +39,7 @@ Notes on responsible use
 - Commands avoid interactive pagers and run safely in user space
 - All edits are committed with descriptive messages for reviewer traceability
 
-## Project: EmberTable Web Application
+## Project: Ember Web Application
 
 ### AI Assistant Used
 - **Tool**: Claude 3.5 Sonnet (Anthropic)

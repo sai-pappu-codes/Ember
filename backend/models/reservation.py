@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from backend.app import db
 
 class Reservation(db.Model):
-    """Reservation model for EmberTable"""
+    """Reservation model for Ember"""
     __tablename__ = 'reservations'
 
     reservation_id = db.Column(db.Integer, primary_key=True)

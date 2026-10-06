@@ -5,7 +5,7 @@ function AboutUs() {
   return (
     <div className="about-page">
       <div className="page-hero">
-        <h1>About EmberTable</h1>
+        <h1>About Ember</h1>
         <p>Our Story of Culinary Excellence</p>
       </div>
 
@@ -14,7 +14,7 @@ function AboutUs() {
           <h2>Our Story</h2>
           <p className="lead">
             Founded in 2010 by Chef Antonio Rossi and restaurateur Maria Lopez,
-            EmberTable blends traditional Italian flavors with modern culinary innovation.
+            Ember blends traditional Italian flavors with modern culinary innovation.
           </p>
           <p>
             Our mission is to provide an unforgettable dining experience that reflects
@@ -22,7 +22,7 @@ function AboutUs() {
             commitment to excellence and our passion for exceptional cuisine.
           </p>
           <p>
-            Located in the heart of Washington, DC, EmberTable has become a landmark
+            Located in the heart of Washington, DC, Ember has become a landmark
             destination for those seeking not just a meal, but a culinary journey that
             engages all the senses.
           </p>
@@ -38,7 +38,7 @@ function AboutUs() {
                 With over 20 years of culinary experience across Europe and America,
                 Chef Rossi brings innovation and tradition to every plate. Trained at
                 Le Cordon Bleu Paris, he has worked in Michelin-starred restaurants
-                before founding EmberTable.
+                before founding Ember.
               </p>
             </div>
             <div className="founder-card">
@@ -46,7 +46,7 @@ function AboutUs() {
               <p className="founder-title">Restaurateur & Co-Founder</p>
               <p>
                 Maria's vision for exceptional hospitality and attention to detail has
-                shaped EmberTable into the premier dining destination it is today.
+                shaped Ember into the premier dining destination it is today.
                 Her expertise in restaurant management ensures every guest receives
                 an unforgettable experience.
               </p>

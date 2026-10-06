@@ -31,7 +31,7 @@ brew services start postgresql@16  # or launch Postgres.app
 # View logs via your OS service manager or Postgres.app
 
 # Access PostgreSQL CLI
-psql -d embertable_dev
+psql -d ember_dev
 
 # Database migrations
 cd backend && flask db migrate -m "Description"  # Create new migration
@@ -124,7 +124,7 @@ Key environment variables (defined in `.env`):
 ## Database
 
 This project uses your local PostgreSQL installation (no Docker required):
-- Database name: `embertable_dev`
+- Database name: `ember_dev`
 - Optional GUI: pgAdmin 4 desktop app (install via Homebrew Cask or Postgres.app)
 
 ## Common Development Tasks
@@ -144,6 +144,6 @@ This project uses your local PostgreSQL installation (no Docker required):
 
 ### Debugging Database Issues
 1. Check service status (macOS): `brew services list | grep postgres` or open Postgres.app
-2. View tables/rows: `psql -d embertable_dev -c "\\dt"`
-3. Access database directly: `psql -d embertable_dev`
+2. View tables/rows: `psql -d ember_dev -c "\\dt"`
+3. Access database directly: `psql -d ember_dev`
 4. Check migration status: `cd backend && flask db current`

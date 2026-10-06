@@ -15,9 +15,9 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/embertable_dev')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/ember_dev')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'embertable-secret-key-change-in-production')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'ember-secret-key-change-in-production')
 
 # Initialize extensions
 db = SQLAlchemy(app)
@@ -26,7 +26,7 @@ CORS(app)
 
 # Models
 class Customer(db.Model):
-    """Customer model for EmberTable"""
+    """Customer model for Ember"""
     __tablename__ = 'customers'
 
     customer_id = db.Column(db.Integer, primary_key=True)
@@ -51,7 +51,7 @@ class Customer(db.Model):
         }
 
 class Reservation(db.Model):
-    """Reservation model for EmberTable"""
+    """Reservation model for Ember"""
     __tablename__ = 'reservations'
 
     reservation_id = db.Column(db.Integer, primary_key=True)
@@ -111,18 +111,18 @@ def health_check():
     """Health check endpoint"""
     return jsonify({
         "status": "healthy",
-        "message": "EmberTable API is running",
-        "restaurant": "EmberTable - Fine Dining Experience"
+        "message": "Ember API is running",
+        "restaurant": "Ember - Fine Dining Experience"
     }), 200
 
 @app.route('/api')
 def api_home():
     """API home endpoint"""
     return jsonify({
-        "message": "Welcome to EmberTable API",
+        "message": "Welcome to Ember API",
         "version": "1.0.0",
         "restaurant_info": {
-            "name": "EmberTable",
+            "name": "Ember",
             "address": "1234 Culinary Ave, Suite 100, Washington, DC 20002",
             "phone": "(202) 555-4567",
             "hours": {

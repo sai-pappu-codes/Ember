@@ -10,7 +10,7 @@ function Home() {
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="hero-title">Welcome to EmberTable</h1>
+          <h1 className="hero-title">Welcome to Ember</h1>
           <p className="hero-subtitle">An Unforgettable Fine Dining Experience</p>
           <div className="hero-buttons">
             <Link to="/reservations" className="btn btn-primary">Make a Reservation</Link>
@@ -26,7 +26,7 @@ function Home() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                Since 2010, EmberTable has been the pinnacle of fine dining in Washington, DC.
+                Since 2010, Ember has been the pinnacle of fine dining in Washington, DC.
                 Founded by Chef Antonio Rossi and restaurateur Maria Lopez, we blend traditional
                 Italian flavors with modern culinary innovation.
               </p>
@@ -37,7 +37,7 @@ function Home() {
               <Link to="/about" className="btn">Learn More About Us</Link>
             </div>
             <div className="about-image">
-              <img src="/images/gallery-cafe-interior.webp" alt="EmberTable Interior" />
+              <img src="/images/gallery-cafe-interior.webp" alt="Ember Interior" />
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@ function Home() {
       {/* Features Section */}
       <section className="section features-section">
         <div className="container">
-          <h2 className="section-title">Why Choose EmberTable</h2>
+          <h2 className="section-title">Why Choose Ember</h2>
           <div className="features-grid">
             <div className="feature-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/dessert-closeup.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white'}}>
               <div className="feature-icon">🍽️</div>
@@ -79,7 +79,7 @@ function Home() {
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <p className="testimonial-text">
-                "Exceptional ambiance and unforgettable flavors. EmberTable delivers
+                "Exceptional ambiance and unforgettable flavors. Ember delivers
                 an extraordinary dining experience every time."
               </p>
               <div className="testimonial-author">- Gourmet Review</div>
@@ -100,7 +100,7 @@ function Home() {
       {/* CTA Section */}
       <section className="section cta-section">
         <div className="container text-center">
-          <h2>Ready to Experience EmberTable?</h2>
+          <h2>Ready to Experience Ember?</h2>
           <p>Book your table now and prepare for an unforgettable dining experience</p>
           <Link to="/reservations" className="btn btn-large">Reserve Your Table</Link>
         </div>

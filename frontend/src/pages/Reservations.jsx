@@ -243,7 +243,7 @@ function Reservations() {
             <div className="info-card">
               <h4>Contact Us</h4>
               <p>Phone: (202) 555-4567</p>
-              <p>Email: reservations@embertable.example</p>
+              <p>Email: reservations@ember.example</p>
             </div>
           </div>
         </div>

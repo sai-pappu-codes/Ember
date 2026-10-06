@@ -18,7 +18,7 @@ setup-frontend: ## Set up React frontend
 	@echo "Frontend setup complete"
 
 db-start: ## Ensure local PostgreSQL database exists
-	@createdb embertable_dev 2>/dev/null || echo "Database embertable_dev already exists"
+	@createdb ember_dev 2>/dev/null || echo "Database ember_dev already exists"
 	@echo "Ensure your local PostgreSQL service is running (e.g., brew services start postgresql@16 or use Postgres.app)"
 
 db-stop: ## Stop PostgreSQL database (local install)

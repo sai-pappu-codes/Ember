@@ -13,13 +13,13 @@ class DevelopmentConfig(Config):
     """Development configuration"""
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://localhost:5432/embertable_dev'
+        'postgresql://localhost:5432/ember_dev'
 
 class ProductionConfig(Config):
     """Production configuration"""
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://localhost:5432/embertable'
+        'postgresql://localhost:5432/ember'
 
 class TestingConfig(Config):
     """Testing configuration"""
